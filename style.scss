@@ -79,8 +79,10 @@ h3 {
 		font-size: 15px;
 		color: var(--darkcolor);
     position: relative;
-		@media (max-width: 767px) {
+		@media (max-width: 1199px) {
 			gap: 20px;
+		}
+		@media (max-width: 767px) {
 			font-size: 14px;
 		}
 		@media (max-width: 479px) {
@@ -105,6 +107,8 @@ h3 {
       z-index: 2;
     }
 	}
+
+	// menu ---------------------------------------------
 	.menu {
 		display: flex;
     .menu__list {
@@ -117,6 +121,9 @@ h3 {
       color: inherit;
       padding: 12px;
       border-radius: 30px;
+			display: flex;
+			align-items: center;
+			gap: 5px;
       &:hover,
       &:focus {
         outline: none;
@@ -131,6 +138,7 @@ h3 {
     .menu__btn {
       font-size: inherit;
     }
+		
     @media (max-width: 991px) {
       position: absolute;
       top: 0;
@@ -158,11 +166,14 @@ h3 {
       }
     }
 	}
+
+	// burger ---------------------------------------------
 	.burger {
     display: none;
 		width: 35px;
 		height: 35px;
 		position: relative;
+		// ---------------------------------
 		&::before,
 		span,
 		&::after {
@@ -184,12 +195,14 @@ h3 {
 		&::after {
 			bottom: 10%;
 		}
+		// ---------------------------------
 		&:hover,
 		&:focus {
 			outline: none;
 			background-color: var(--lightgreen);
 			box-shadow: 0 0 5px 5px var(--lightgreen);
 		}
+		// ---------------------------------
 		&_active {
 			&::before {
 				top: 50%;
