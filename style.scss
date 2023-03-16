@@ -78,9 +78,21 @@ h3 {
 		gap: 40px;
 		font-size: 15px;
 		color: var(--darkcolor);
-    position: relative;
+		position: relative;
 		@media (max-width: 1199px) {
 			gap: 20px;
+		}
+		@media (max-width: 767px) {
+			&::after{
+				content: '';
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				background-color: var(--maincolor);
+				box-shadow: 0 0 5px var(--darkcolor);
+			}
 		}
 		@media (max-width: 767px) {
 			font-size: 14px;
@@ -88,88 +100,120 @@ h3 {
 		@media (max-width: 479px) {
 			gap: 15px;
 		}
-    .header__logo {
-      z-index: 2;
-      &:hover,
-      &:focus {
-        outline: none;
-        img {
-          -webkit-filter: drop-shadow(0 0 5px var(--lightgreen))
-            contrast(150%);
-          filter: drop-shadow(0 0 5px var(--lightgreen)) contrast(150%);
-        }
-      }
-    }
-    .header__menu {
-      flex: 1 1 auto;
-    }
-    .header__burger {
-      z-index: 2;
-    }
+		.header__logo {
+			z-index: 2;
+			&:hover,
+			&:focus {
+				outline: none;
+				img {
+					-webkit-filter: drop-shadow(0 0 5px var(--lightgreen))
+						contrast(150%);
+					filter: drop-shadow(0 0 5px var(--lightgreen))
+						contrast(150%);
+				}
+			}
+		}
+		.header__menu {
+			flex: 1 1 auto;
+		}
+		.header__burger {
+			z-index: 2;
+		}
 	}
 
 	// menu ---------------------------------------------
 	.menu {
 		display: flex;
-    .menu__list {
-      flex: 1 1 auto;
-      display: flex;
-      align-items: center;
-    }
-    .menu__link {
-      display: block;
-      color: inherit;
-      padding: 12px;
-      border-radius: 30px;
+		.menu__list {
+			flex: 1 1 auto;
+			display: flex;
+			align-items: center;
+			li {
+				position: relative;
+			}
+		}
+		.menu__link {
+			display: block;
+			color: inherit;
+			padding: 12px;
+			border-radius: 10px;
 			display: flex;
 			align-items: center;
 			gap: 5px;
-      &:hover,
-      &:focus {
-        outline: none;
-        background-color: #fffef7;
-        box-shadow: 0 0 5px var(--lightcolor);
-      }
-    }
-    .menu__buttons {
-      display: flex;
-      align-items: center;
-    }
-    .menu__btn {
-      font-size: inherit;
-    }
-		
-    @media (max-width: 991px) {
-      position: absolute;
-      top: 0;
-      right: -100vw;
-      height: 100vh;
-      width: 100vw;
-      background-color: var(--maincolor);
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      gap: 15px;
-      transition: all 0.1s ease 0s;
-      .menu__list {
-        flex: 0 0 auto;
-        flex-direction: column;
-        justify-content: center;
-      }
-      .menu__buttons {
-        align-items: center;
-        justify-content: center;
-      }
-      &_active{
-        right: 0;
-      }
-    }
+			&:hover,
+			&:focus {
+				outline: none;
+				background-color: #fffef7;
+				box-shadow: 0 0 5px var(--lightcolor);
+			}
+		}
+		.menu__buttons {
+			display: flex;
+			align-items: center;
+		}
+		.menu__btn {
+			font-size: inherit;
+		}
+		@media (min-width: 992px) {
+			.menu__sublist {
+				position: absolute;
+				top: 100%;
+				left: 0%;
+				min-width: -webkit-max-content;
+				min-width: -moz-max-content;
+				min-width: max-content;
+				width: 100%;
+				opacity: 0;
+				height: 0;
+				overflow: hidden;
+				background-color: var(--maincolor);
+				border-radius: 10px;
+				
+			}
+			.menu__list li:hover .menu__sublist,
+			.drop_active .menu__sublist {
+				opacity: 100%;
+				height: -webkit-max-content;
+				height: -moz-max-content;
+				height: max-content;
+			}
+		}
+
+		@media (max-width: 991px) {
+			position: absolute;
+			top: 0;
+			right: -100vw;
+			height: 100vh;
+			width: 100vw;
+			background-color: var(--maincolor);
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+			font-size: 18px;
+			gap: 15px;
+			transition: all 0.1s ease 0s;
+			overflow: scroll;
+			padding: 70px 0 20px;
+			.menu__list {
+				flex: 0 0 auto;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: flex-start;
+			}
+			.menu__buttons {
+				align-items: center;
+				justify-content: center;
+				gap: 20px;
+			}
+			&_active {
+				right: 0;
+			}
+		}
 	}
 
 	// burger ---------------------------------------------
 	.burger {
-    display: none;
+		display: none;
 		width: 35px;
 		height: 35px;
 		position: relative;
@@ -216,8 +260,8 @@ h3 {
 				transform: translate(0, 50%) rotate(45deg);
 			}
 		}
-    @media (max-width: 991px) {
-      display: block;
-    }
+		@media (max-width: 991px) {
+			display: block;
+		}
 	}
 }
