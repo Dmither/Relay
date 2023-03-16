@@ -1,4 +1,5 @@
 import './style.scss';
+import { InitSpoiler } from './onlyOneSpoiler';
 
 let body = document.querySelector("body");
 let menu = document.querySelector(".menu");
@@ -40,4 +41,10 @@ function initDrop(dropdown){
         .classList.remove("drop_active");
     });
   });
+}
+
+console.log(window.innerWidth);
+if (window.innerWidth < 992){
+  let accords = document.querySelectorAll(".footer__nav-item");
+  InitSpoiler(accords);
 }
